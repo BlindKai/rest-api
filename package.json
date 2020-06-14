@@ -2,8 +2,10 @@
   "name": "example-api-architecture",
   "version": "0.0.1",
   "description": "This is a variant of RESTful API architecture implementation",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
+    "start": "pm2 start & pm2 logs",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -11,5 +13,14 @@
     "architecture"
   ],
   "author": "BlindKai",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.13",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "url": "https://github.com/BlindKai/rest-api.git"
+  }
 }

@@ -4,7 +4,7 @@
   "description": "This is a variant of RESTful API architecture implementation",
   "main": "index.ts",
   "scripts": {
-    "start": "pm2 start & pm2 logs",
+    "start": "tsc & pm2 start & pm2 logs",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

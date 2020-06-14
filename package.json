@@ -1,0 +1,15 @@
+{
+  "name": "example-api-architecture",
+  "version": "0.0.1",
+  "description": "This is a variant of RESTful API architecture implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest-api",
+    "architecture"
+  ],
+  "author": "BlindKai",
+  "license": "ISC"
+}

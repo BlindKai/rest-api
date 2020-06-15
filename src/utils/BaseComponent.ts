@@ -48,21 +48,11 @@ export abstract class BaseController {
   }
 
   public unprocessableEntity(res: Response, message?: string, error?: object) {
-    return BaseController.error(
-      res,
-      422,
-      message || "Unprocessable Entity",
-      error
-    );
+    return BaseController.error(res, 422, message || "Unprocessable Entity", error);
   }
 
   public tooManyRequests(res: Response, message?: string, error?: object) {
-    return BaseController.error(
-      res,
-      429,
-      message || "Too Many Requests",
-      error
-    );
+    return BaseController.error(res, 429, message || "Too Many Requests", error);
   }
 
   public internalServerError(res: Response, message?: string) {

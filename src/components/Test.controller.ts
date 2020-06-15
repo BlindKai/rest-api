@@ -3,28 +3,27 @@ import { Request, Response } from "express";
 import { CRUD } from "../utils/CRUD";
 
 export class TestController extends BaseController implements CRUD {
-  all(req: Request<any>, res: Response<any>): Response<any> {
+  all(req: Request, res: Response): Promise<Response> {
     throw new Error("Method not implemented.");
   }
 
-  find(req: Request<any>, res: Response<any>): Response<any> {
+  find(req: Request, res: Response): Promise<Response> {
     throw new Error("Method not implemented.");
   }
 
-  create(req: Request<any>, res: Response<any>): Response<any> {
+  create(req: Request, res: Response): Promise<Response> {
     throw new Error("Method not implemented.");
   }
 
-  update(req: Request<any>, res: Response<any>): Response<any> {
+  update(req: Request, res: Response): Promise<Response> {
     throw new Error("Method not implemented.");
   }
 
-  patch(req: Request<any>, res: Response<any>): Response<any> {
-    throw new Error("Method not implemented.");
-  }
-  
-  delete(req: Request<any>, res: Response<any>): Response<any> {
+  patch(req: Request, res: Response): Promise<Response> {
     throw new Error("Method not implemented.");
   }
 
+  delete(req: Request, res: Response): Promise<Response> {
+    throw new Error("Method not implemented.");
+  }
 }

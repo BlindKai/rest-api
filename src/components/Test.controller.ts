@@ -1,29 +1,19 @@
-import { BaseController } from "../utils/BaseComponent";
+import { BaseController } from "../interfaces/BaseComponent";
 import { Request, Response } from "express";
-import { CRUD } from "../utils/CRUD";
 
-export class TestController extends BaseController implements CRUD {
-  all(req: Request, res: Response): Promise<Response> {
-    throw new Error("Method not implemented.");
+export class TestController extends BaseController {
+  protected async executeImpl(req: Request, res: Response) {
+    await wait(-2);
+    this.ok(res);
   }
+}
 
-  find(req: Request, res: Response): Promise<Response> {
-    throw new Error("Method not implemented.");
-  }
+function wait(timeout: number) {
+  return new Promise((resolve, reject) => {
+    if (timeout < 0) reject("Timeout < 0");
 
-  create(req: Request, res: Response): Promise<Response> {
-    throw new Error("Method not implemented.");
-  }
-
-  update(req: Request, res: Response): Promise<Response> {
-    throw new Error("Method not implemented.");
-  }
-
-  patch(req: Request, res: Response): Promise<Response> {
-    throw new Error("Method not implemented.");
-  }
-
-  delete(req: Request, res: Response): Promise<Response> {
-    throw new Error("Method not implemented.");
-  }
+    const until = Date.now() + timeout;
+    while (until > Date.now()) {}
+    resolve("result");
+  });
 }

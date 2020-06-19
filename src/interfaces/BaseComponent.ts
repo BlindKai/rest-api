@@ -1,6 +1,18 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 
 export abstract class BaseController {
+  protected abstract executeImpl(req: Request, res: Response): Promise<void | any>;
+
+  public async execute(req: Request, res: Response): Promise<void | any> {
+    try {
+      await this.executeImpl(req, res);
+    } catch (err) {
+      console.log(`[BaseController]: Uncaught controller error`);
+      console.log(err);
+      this.internalServerError(res, "An unexpected error occurred");
+    }
+  }
+
   /**
    * This method is called on successful server response
    */
@@ -48,11 +60,21 @@ export abstract class BaseController {
   }
 
   public unprocessableEntity(res: Response, message?: string, error?: object) {
-    return BaseController.error(res, 422, message || "Unprocessable Entity", error);
+    return BaseController.error(
+      res,
+      422,
+      message || "Unprocessable Entity",
+      error
+    );
   }
 
   public tooManyRequests(res: Response, message?: string, error?: object) {
-    return BaseController.error(res, 429, message || "Too Many Requests", error);
+    return BaseController.error(
+      res,
+      429,
+      message || "Too Many Requests",
+      error
+    );
   }
 
   public internalServerError(res: Response, message?: string) {
